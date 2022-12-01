@@ -58,11 +58,20 @@ createComponentFile filepath = do
     createDirectoryIfMissing True $ takeDirectory filepath
     writeFile filepath $ createModuleContents (toModuleName filepath)
 
+
 createModuleContents :: String -> String
-createModuleContents moduleName = mconcat
-  [ "module " <> moduleName <> " where", "\n\n"
-  , if "Common" `isInfixOf` moduleName then "" else "solution :: IO a\nsolution = undefined"
-  ]
+createModuleContents moduleName
+  | "Common" `isInfixOf` moduleName = f "solveDay" "Text -> IO (Int, Int)"
+  | "PartOne" `isInfixOf` moduleName = f "solvePart1" "a -> Int"
+  | "PartTwo" `isInfixOf` moduleName = f "solvePart2" "a -> Int"
+  | otherwise = ""
+  where f :: String -> String -> String
+        f func_name in_types = mconcat
+          [ "module " <> moduleName <> " (" <> func_name <> ") where\n\n"
+          , func_name <> " :: " <> in_types <> "\n"
+          , func_name <> " = undefined"
+          ]
+
 
 directoryForComponent :: Day -> Maybe FilePath
 directoryForComponent day = (\name -> "lib" </> "Aoc" </> "Day" </> name) <$> nameForDay day

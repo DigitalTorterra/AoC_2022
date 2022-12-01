@@ -5,8 +5,11 @@ import Data.Text (Text)
 import Input
 import System.Environment (getArgs)
 
+import Aoc.Day.One.Common (solveDay1)
+
 -- NOTE: Add here the solutions for each day.
 solveDay :: Int -> Text -> IO (Int, Int)
+solveDay 1 input = solveDay1 input
 solveDay _day _input = error "Invalid day"
 
 solve :: Day -> IO ()

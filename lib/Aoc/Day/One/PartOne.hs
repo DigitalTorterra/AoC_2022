@@ -1,4 +1,4 @@
 module Aoc.Day.One.PartOne where
 
-solution :: IO a
-solution = undefined
+solvePart1 :: [[Int]] -> Int
+solvePart1 = maximum . (map sum)
