@@ -12,9 +12,19 @@ extra-source-files: README.md
 
 library
     exposed-modules:
-          Aoc.Day.One.PartOne
+          Aoc.Utils
+        , Aoc.Day.One.PartOne
         , Aoc.Day.One.PartTwo
         , Aoc.Day.One.Common
+        , Aoc.Day.Two.PartOne
+        , Aoc.Day.Two.PartTwo
+        , Aoc.Day.Two.Common
+        , Aoc.Day.Three.PartOne
+        , Aoc.Day.Three.PartTwo
+        , Aoc.Day.Three.Common
+        , Aoc.Day.Four.PartOne
+        , Aoc.Day.Four.PartTwo
+        , Aoc.Day.Four.Common
     build-depends:
         base
         , text                 >= 1.2.5 && < 1.3
@@ -23,7 +33,7 @@ library
 --         -- , array                >= 0.5.4 && < 0.6
 --         -- , attoparsec           >= 0.14.4 && < 0.15
 --         -- , bytestring           >= 0.10.12 && < 0.11
---         -- , containers           >= 0.6.4 && < 0.7
+        , containers           >= 0.6.4 && < 0.7
 --         -- , primitive            >= 0.7.4 && < 0.8
 --         -- , text                 >= 1.2.5 && < 1.3
 --         -- , unordered-containers >= 0.2.19 && < 0.3
@@ -40,8 +50,6 @@ executable aoc-runner
    build-depends:
           base
         , aoc-solutions
-        -- , filepath
-        -- , text
         , filepath             >= 1.4.2 && < 1.5
         , text                 >= 1.2.5 && < 1.3
    hs-source-dirs: app
@@ -55,6 +63,9 @@ test-suite test-solutions
     hs-source-dirs: test
     other-modules:
         DayOneSpec
+        DayTwoSpec
+        DayThreeSpec
+        DayFourSpec
     build-depends:
             base
           , aoc-solutions
