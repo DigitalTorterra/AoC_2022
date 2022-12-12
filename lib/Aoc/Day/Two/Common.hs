@@ -12,9 +12,12 @@ parseText in_text = map (\w -> (T.head w, T.last w)) non_null
         non_null = filter (not . T.null) in_lines
 
 
-solveDay2 :: Text -> IO (Int, Int)
+solveDay2 :: Text -> IO (String, String)
 solveDay2 in_text = do
   let moves = parseText in_text
       res1 = solvePart1 moves
       res2 = solvePart2 moves
-  return (res1, res2)
+      part1_str = show res1
+      part2_str = show res2
+
+  return (part1_str, part2_str)

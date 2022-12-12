@@ -25,12 +25,36 @@ library
         , Aoc.Day.Four.PartOne
         , Aoc.Day.Four.PartTwo
         , Aoc.Day.Four.Common
+        , Aoc.Day.Five.PartOne
+        , Aoc.Day.Five.PartTwo
+        , Aoc.Day.Five.Common
+        , Aoc.Day.Six.PartOne
+        , Aoc.Day.Six.PartTwo
+        , Aoc.Day.Six.Common
+        , Aoc.Day.Seven.PartOne
+        , Aoc.Day.Seven.PartTwo
+        , Aoc.Day.Seven.Common
+        , Aoc.Day.Eight.PartOne
+        , Aoc.Day.Eight.PartTwo
+        , Aoc.Day.Eight.Common
+        , Aoc.Day.Nine.PartOne
+        , Aoc.Day.Nine.PartTwo
+        , Aoc.Day.Nine.Common
+        , Aoc.Day.Ten.PartOne
+        , Aoc.Day.Ten.PartTwo
+        , Aoc.Day.Ten.Common
+        , Aoc.Day.Eleven.PartOne
+        , Aoc.Day.Eleven.PartTwo
+        , Aoc.Day.Eleven.Common
+        , Aoc.Day.Twelve.PartOne
+        , Aoc.Day.Twelve.PartTwo
+        , Aoc.Day.Twelve.Common
     build-depends:
-        base
+        base                   >= 4.5 && < 5
         , text                 >= 1.2.5 && < 1.3
         , split
 --           base                 ^>=4.15.1.0
---         -- , array                >= 0.5.4 && < 0.6
+        , array                >= 0.5.4 && < 0.6
 --         -- , attoparsec           >= 0.14.4 && < 0.15
 --         -- , bytestring           >= 0.10.12 && < 0.11
         , containers           >= 0.6.4 && < 0.7
@@ -38,6 +62,10 @@ library
 --         -- , text                 >= 1.2.5 && < 1.3
 --         -- , unordered-containers >= 0.2.19 && < 0.3
 --         -- , vector               >= 0.13.0 && < 0.14
+        -- , regex-base           >= 0.94 && < 0.95
+        , regex-tdfa           ^>= 1.3.2
+        , mtl
+        -- , regex-tdfa-text
     hs-source-dirs:   lib
     ghc-options: -Wall
     default-language: Haskell2010
@@ -66,6 +94,14 @@ test-suite test-solutions
         DayTwoSpec
         DayThreeSpec
         DayFourSpec
+        DayFiveSpec
+        DaySixSpec
+        DaySevenSpec
+        DayEightSpec
+        DayNineSpec
+        DayTenSpec
+        DayElevenSpec
+        DayTwelveSpec
     build-depends:
             base
           , aoc-solutions
